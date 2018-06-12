@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="Shop_typeMapper">
+  <select id="selectAll" resultType="com.ylw.pojo.Shop_typeEntity">
+    SELECT * FROM shop_type
+  </select>
+  <select id="selectById" parameterType="int" resultType="com.ylw.pojo.Shop_typeEntity">
+    SELECT * FROM shop_type  where type_id=#{type_id}
+  </select>
+  <insert id="insertType" parameterType="com.ylw.pojo.Shop_typeEntity">
+    insert into shop_type(type_id,type_name)
+    values(#{type_id},#{type_name})
+  </insert>
+  <update id="updateType" parameterType="com.ylw.pojo.Shop_typeEntity">
+   update shop_type set type_id=#{type_id},type_name=#{type_name} where type_id=#{type_id}
+  </update>
+  <delete id="deleteType" parameterType="int">
+  delete from shop_type where type_id=#{type_id}
+  </delete>
+</mapper>
